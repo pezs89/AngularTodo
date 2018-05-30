@@ -1,10 +1,11 @@
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var helpers = require('./helpers');
-var path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpackHotMiddleware = require('webpack-hot-middleware');
+const helpers = require('./helpers');
+const path = require('path');
 
-module.exports = {
+const config = {
     mode: 'development',
     devtool: 'cheap-module-eval-source-map',
     entry: {
@@ -15,6 +16,15 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].js'
+    },
+    devServer: {
+        historyApiFallback: true,
+        hot: true,
+        contentBase: path.resolve(__dirname, 'dist'),
+        watchOptions: {
+            poll: true
+        },
+        port: 8080,
     },
     optimization: {
         splitChunks: {
@@ -29,7 +39,10 @@ module.exports = {
                 test: /\.ts$/,
                 loaders: [{
                     loader: 'awesome-typescript-loader',
-                    options: { configFileName: helpers.root('src', 'tsconfig.json'), transpileOnly: true }
+                    options: {
+                        configFileName: helpers.root('src', 'tsconfig.json'),
+                        transpileOnly: true
+                    }
                 }, 'angular2-template-loader']
             },
             {
@@ -51,24 +64,21 @@ module.exports = {
             }
         ]
     },
-
     plugins: [
         new webpack.ContextReplacementPlugin(
-            /angular(\\|\/)core(\\|\/)@angular/,
+            /\@angular(\\|\/)core(\\|\/)fesm5/,
             helpers.root('./src'), {}
         ),
         new HtmlWebpackPlugin({
             template: 'src/index.html',
             inject: 'body'
         }),
-        new ExtractTextPlugin({filename: 'app.css'})
-    ],
-    devServer: {
-        historyApiFallback: true,
-        contentBase: path.resolve(__dirname, 'dist'),
-        watchOptions: {
-            poll: true
-        },
-        port: 9000
-    }
+        new ExtractTextPlugin({
+            filename: 'app.css'
+        }),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoEmitOnErrorsPlugin()
+    ]
 };
+
+module.exports = config;
