@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, forwardRef, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TodoService } from '../../core/services/todo.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { TodoService } from '../../core/services/todo.service';
 export class AddTodoComponent implements OnInit {
     isValid: boolean = false;
 
-    constructor(@Inject(forwardRef(() => TodoService)) private todoService: TodoService) { }
+    constructor(public todoService: TodoService) { }
     ngOnInit() { }
 
     addNewTodo(newTodo: string): void {

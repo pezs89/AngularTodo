@@ -3,11 +3,13 @@
     "target": "es5",
     "moduleResolution": "node",
     "sourceMap": true,
+    "outDir": "./dist",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": ["es5", "es6", "dom", "scripthost", "es7"],
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
-    "types": ["node"]
+    "types": ["node"],
+    "baseUrl": "."
   }
 }

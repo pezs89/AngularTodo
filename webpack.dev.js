@@ -24,7 +24,7 @@ const config = {
         watchOptions: {
             poll: true
         },
-        port: 8080,
+        port: 9000,
     },
     optimization: {
         splitChunks: {
@@ -40,7 +40,7 @@ const config = {
                 loaders: [{
                     loader: 'awesome-typescript-loader',
                     options: {
-                        configFileName: helpers.root('src', 'tsconfig.json'),
+                        configFileName: 'configs/tsconfig.json',
                         transpileOnly: true
                     }
                 }, 'angular2-template-loader']

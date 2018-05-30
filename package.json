@@ -4,7 +4,7 @@
   "description": "demoapp",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config webpack.dev.js"
+    "start": "webpack-dev-server --inline --progress --config webpack.dev.js"
   },
   "author": "Peter Zsolt",
   "license": "ISC",
