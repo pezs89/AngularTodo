@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { AddTodoComponent } from './components/AddTodoComponent/addTodo.component';
 import { TodoList } from './components/TodoListComponent/todoList.component';
 import { TodoItem } from './components/TodoItemComponent/todoItem.component';
-
+import { TodoService } from './core/services/todo.service';
 
 @NgModule({
     imports: [
@@ -18,6 +18,9 @@ import { TodoItem } from './components/TodoItemComponent/todoItem.component';
         AddTodoComponent,
         TodoList,
         TodoItem
+    ],
+    providers: [
+        TodoService
     ],
     bootstrap: [AppComponent]
 })

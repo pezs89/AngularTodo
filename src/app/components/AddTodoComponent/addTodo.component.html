@@ -1,4 +1,9 @@
 <div class="addtodo-container">
-    <input type="text" placeholder="Todo" [(ngModel)]="newTodo" />
-    <button type="button" (click)="addNewTodo(newTodo)">Add</button>
+    <input type="text" placeholder="Todo"
+        (keyup)="setValidity(newTodoInput.value)"
+        (keydown.enter)="addNewTodo(newTodoInput.value)"
+        #newTodoInput />
+    <button type="button" (click)="addNewTodo(newTodoInput.value)"
+            [ngClass]="{'disabled': !isValid}"
+            [disabled]="!isValid">Add</button>
 </div>

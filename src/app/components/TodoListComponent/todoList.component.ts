@@ -1,5 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Inject, forwardRef } from '@angular/core';
 import { Todo } from '../../models/Todo';
+import { TodoService } from '../../core/services/todo.service';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'todo-list',
@@ -7,5 +9,12 @@ import { Todo } from '../../models/Todo';
 })
 
 export class TodoList {
-    @Input() todoList: Todo[];
+    todoList: Todo[] = [];
+    subscription: Subscription;
+
+    constructor(@Inject(forwardRef(() => TodoService)) private todoService: TodoService) {
+        this.subscription = todoService.todoObservable.subscribe(newName => {
+            this.todoList.push(new Todo(newName, false))
+        })
+    }
 }
