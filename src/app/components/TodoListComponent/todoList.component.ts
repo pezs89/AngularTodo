@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Todo } from '../../models/Todo';
 import { TodoService } from '../../core/services/todo.service';
 import { Subscription } from 'rxjs';
@@ -8,12 +8,26 @@ import { Subscription } from 'rxjs';
     templateUrl: './todoList.component.html'
 })
 
-export class TodoList {
-    private todoList: Todo[] = [];
-    
-    constructor(private todoService: TodoService) {
-        todoService.todoObservable.subscribe(newTodo => {
+export class TodoList implements OnInit, OnDestroy {
+    public todoList: Todo[] = [];
+    private subscribtion: Subscription;
+    constructor(private todoService: TodoService) { }
+
+    ngOnInit() {
+        this.subscribtion = this.todoService.todoObservable.subscribe(newTodo => {
             this.todoList.push(newTodo)
         })
+    }
+
+    deleteTodo(id: string) {
+        this.todoList = this.filterList(id);
+    }
+
+    filterList(id: string) {
+        return this.todoList.filter(todo => todo.id !== id);
+    }
+
+    ngOnDestroy() {
+        this.subscribtion.unsubscribe();
     }
 }

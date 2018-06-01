@@ -1,1 +1,6 @@
-<li>{{todo.todoName}}</li>
+<li>
+    <input type="checkbox" [(ngModel)]="todo.isCompleted"/>
+    <span>{{todo.todoName}}</span>
+    <button type="button" (click)="deleteTodo()">X</button>
+    <hr *ngIf="todo.isCompleted" />
+</li>
