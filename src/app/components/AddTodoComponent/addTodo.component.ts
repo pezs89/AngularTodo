@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { TodoService } from '../../core/services/todo.service';
 
 @Component({
@@ -6,21 +6,20 @@ import { TodoService } from '../../core/services/todo.service';
     templateUrl: './addTodo.component.html'
 })
 
-export class AddTodoComponent implements OnInit {
-    isValid: boolean = false;
+export class AddTodoComponent {
+    @ViewChild('newTodoInput') private el: ElementRef;
+    private isValid: boolean = false;
 
     constructor(public todoService: TodoService) { }
-    ngOnInit() { }
+
 
     addNewTodo(newTodo: string): void {
-        this.setValidity(newTodo);
-
-        if (this.isValid) {
-            this.todoService.addNewTodo(newTodo);
-        }
+        this.todoService.addNewTodo(newTodo);
+        this.el.nativeElement.value = '';
+        this.setValidity(this.el.nativeElement.value);
     }
 
     setValidity(value: string): void {
         this.isValid = value.length === 0 ? false : true;
     }
-}
+}  

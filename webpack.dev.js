@@ -40,7 +40,6 @@ const config = {
                 loaders: [{
                     loader: 'awesome-typescript-loader',
                     options: {
-                        configFileName: 'configs/tsconfig.json',
                         transpileOnly: true
                     }
                 }, 'angular2-template-loader']

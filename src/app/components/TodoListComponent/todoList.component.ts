@@ -9,11 +9,11 @@ import { Subscription } from 'rxjs';
 })
 
 export class TodoList {
-    todoList: Todo[] = [];
+    private todoList: Todo[] = [];
     
     constructor(private todoService: TodoService) {
-        todoService.todoObservable.subscribe(newName => {
-            this.todoList.push(new Todo(newName, false))
+        todoService.todoObservable.subscribe(newTodo => {
+            this.todoList.push(newTodo)
         })
     }
 }
