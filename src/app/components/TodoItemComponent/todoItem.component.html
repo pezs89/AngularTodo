@@ -1,6 +1,6 @@
-<li>
-    <input type="checkbox" [(ngModel)]="todo.isCompleted"/>
-    <span>{{todo.todoName}}</span>
-    <button type="button" (click)="deleteTodo()">X</button>
-    <hr *ngIf="todo.isCompleted" />
+<li class="todo-item" [ngClass]="{'last-element': isLastElement}">
+    <input class="todo-item-checkbox" type="checkbox" [(ngModel)]="todo.isCompleted" />
+    <span class="todo-item-text" title="{{todo.todoName}}"
+        [ngStyle]="{'text-decoration': todo.isCompleted ? 'line-through': 'none'}">{{todo.todoName}}</span>
+    <button class="todo-item-button" type="button" (click)="deleteTodo()">X</button>
 </li>

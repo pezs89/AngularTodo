@@ -8,6 +8,7 @@ import { Todo } from '../../models/Todo';
 
 export class TodoItem {
     @Input() todo: Todo;
+    @Input() isLastElement: number;
     @Output() deletableTodo = new EventEmitter<string>();
 
     deleteTodo() {

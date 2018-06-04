@@ -1,0 +1,16 @@
+.addtodo-container {
+    width: 100%;
+    height: $card-height;
+
+    .addtodo-input {
+        width: calc(80% - 12px);
+        height: calc(100% - 4px);
+        padding: 0 5px;
+    }
+
+    .addtodo-button {
+        width: calc(20% - 2px);
+        height: 100%;
+    }
+}
+
