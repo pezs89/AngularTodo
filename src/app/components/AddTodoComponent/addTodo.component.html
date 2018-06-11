@@ -3,7 +3,4 @@
         (keyup)="setValidity(newTodoInput.value)"
         (keydown.enter)="addNewTodo(newTodoInput.value)"
         #newTodoInput />
-    <button class="addtodo-button" type="button" (click)="addNewTodo(newTodoInput.value)"
-            [ngClass]="{'disabled': !isValid}"
-            [disabled]="!isValid">Add</button>
 </div>

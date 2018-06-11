@@ -12,11 +12,12 @@ export class AddTodoComponent {
 
     constructor(public todoService: TodoService) { }
 
-
     addNewTodo(newTodo: string): void {
-        this.todoService.addNewTodo(newTodo);
-        this.el.nativeElement.value = '';
-        this.setValidity(this.el.nativeElement.value);
+        this.setValidity(newTodo);
+        if (this.isValid) {
+            this.todoService.addNewTodo(newTodo);
+            this.el.nativeElement.value = '';
+        }
     }
 
     setValidity(value: string): void {

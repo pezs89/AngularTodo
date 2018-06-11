@@ -3,14 +3,18 @@
     height: $card-height;
 
     .addtodo-input {
-        width: calc(80% - 12px);
-        height: calc(100% - 4px);
-        padding: 0 5px;
-    }
-
-    .addtodo-button {
-        width: calc(20% - 2px);
+        width: calc(100% - 10px);
         height: 100%;
+        border: 0;
+        padding: 0 5px;
+        background-color: rgba(14,145,197,0.75);
+        border-radius: 3px;
+        transition: background 0.25s ease-in-out;
+        -webkit-transition: background 0.25s ease-in-out;
+        outline: none;
+        &:focus {
+            background-color: #fff;
+        }
     }
 }
 
