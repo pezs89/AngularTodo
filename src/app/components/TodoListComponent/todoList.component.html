@@ -1,8 +1,7 @@
 <div class="todo-list">
     <ul>
-        <todo-item *ngFor="let todo of todoList; let last = last"
+        <todo-item *ngFor="let todo of todoList"
                     [todo]="todo"
-                    [isLastElement]="last"
                     (deletableTodo)="deleteTodo($event)"></todo-item>
     </ul>
 </div>

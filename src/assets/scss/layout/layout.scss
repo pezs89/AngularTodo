@@ -1,9 +1,23 @@
-body, html {
+html {
     height: 100%;
-    background: linear-gradient(rgb(74, 161, 207),  #fff);
+    background: linear-gradient(rgb(74, 161, 207), #fff);
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+    overflow: auto;
+    height: 100%;
+}
+
+header {
+    position: fixed;
+    height: 40px;
+    width: 100%;
+    display: flex;
 }
 
 main {
     width: 60%;
-    margin: 0 auto;
+    margin: 60px auto 0 auto;
 }
