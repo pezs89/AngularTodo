@@ -1,4 +1,5 @@
 @import 'constants/variables';
+@import '~font-awesome/scss/font-awesome';
 
 @import 'layout/layout';
 
@@ -6,6 +7,7 @@
 @import 'components/todoitem.component';
 @import 'components/todolist.component';
 @import 'components/header.component';
+
 
 .disabled {
     opacity: 0.5;
