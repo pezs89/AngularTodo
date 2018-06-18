@@ -10,6 +10,7 @@ import { TodoList } from './components/TodoListComponent/todoList.component';
 import { TodoItem } from './components/TodoItemComponent/todoItem.component';
 import { Header } from './components/HeaderComponent/header.component';
 import { TodoService } from './core/services/todo.service';
+import { NameFilterPipe } from './core/pipes/name.pipe';
 
 @NgModule({
     imports: [
@@ -23,7 +24,8 @@ import { TodoService } from './core/services/todo.service';
         AddTodoComponent,
         TodoList,
         TodoItem,
-        Header
+        Header,
+        NameFilterPipe
     ],
     providers: [
         TodoService

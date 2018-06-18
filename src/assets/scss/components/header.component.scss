@@ -8,13 +8,23 @@ header {
 
     .layout-main {
         width: 80%;
+        position: relative;
+
+        i {
+            position: absolute;
+            left: 0;
+            top: calc(50% - 7px);
+            color : #fff;
+            font-size: 13px;
+        }
 
         .search-input {
+            width: 71%;
             height: 100%;
             background: transparent;
             outline: none;
             border: none;
-            padding: 0;
+            padding: 0 5px 0 20px;
             color: #fff;
             &::placeholder {
                 color: rgba(255, 255, 255, 0.7);

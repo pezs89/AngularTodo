@@ -1,6 +1,7 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Todo } from '../../models/Todo';
 import { TodoService } from '../../core/services/todo.service';
+import { SearchService } from '../../core/services/search.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -10,12 +11,19 @@ import { Subscription } from 'rxjs';
 
 export class TodoList implements OnInit, OnDestroy {
     public todoList: Todo[] = [];
-    private subscribtion: Subscription;
-    constructor(private todoService: TodoService) { }
+    public searchQuery: string = '';
+    private addNewTodoSubscription: Subscription;
+    private filterQuerySubscription: Subscription;
+
+    constructor(private todoService: TodoService, private searchService: SearchService) { }
 
     ngOnInit() {
-        this.subscribtion = this.todoService.todoObservable.subscribe(newTodo => {
+        this.addNewTodoSubscription = this.todoService.todoObservable.subscribe(newTodo => {
             this.todoList.push(newTodo)
+        })
+
+        this.filterQuerySubscription = this.searchService.searchQueryObserver.subscribe(newQuery => {
+            this.searchQuery = newQuery;
         })
     }
 
@@ -28,6 +36,7 @@ export class TodoList implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        this.subscribtion.unsubscribe();
+        this.addNewTodoSubscription.unsubscribe();
+        this.filterQuerySubscription.unsubscribe();
     }
 }
