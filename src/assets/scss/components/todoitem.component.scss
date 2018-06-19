@@ -8,12 +8,23 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     margin: 2px 0;
 
+    > div {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:nth-of-type(2) {
+            justify-content: flex-start;
+        }
+    }
+
     .todo-item-checkbox {
         width: 5%;
     }
 
     .todo-item-text {
-        width: 85%;
+        width: 100%;
         height: 100%;
         line-height: $card-height; 
         overflow: hidden;

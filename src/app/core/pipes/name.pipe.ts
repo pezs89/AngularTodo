@@ -11,7 +11,7 @@ export class NameFilterPipe implements PipeTransform {
             return list;
         } else {
             return list.filter(item =>
-                item.todoName.toLowerCase().indexOf(query.toLocaleLowerCase()) > -1
+                item.todoName.toLowerCase().includes(query.toLocaleLowerCase())
             )
         }
     }
