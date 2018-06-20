@@ -2,34 +2,29 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatRippleModule } from '@angular/material';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-import { AddTodoComponent } from './components/AddTodoComponent/addTodo.component';
-import { TodoList } from './components/TodoListComponent/todoList.component';
-import { TodoItem } from './components/TodoItemComponent/todoItem.component';
 import { Header } from './components/HeaderComponent/header.component';
-import { TodoService } from './core/services/todo.service';
-import { NameFilterPipe } from './core/pipes/name.pipe';
 
+import { AppRoutingModule } from './app-routing.module';
+import { SearchService } from './core/services/search.service';
+
+import { TodosModule } from './modules/todos/todos.module'
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
         BrowserAnimationsModule,
-        MatRippleModule 
+        MatRippleModule,
+        TodosModule,
+        AppRoutingModule
     ],
     declarations: [
         AppComponent,
-        AddTodoComponent,
-        TodoList,
-        TodoItem,
-        Header,
-        NameFilterPipe
+        Header
     ],
-    providers: [
-        TodoService
-    ],
+    providers: [SearchService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

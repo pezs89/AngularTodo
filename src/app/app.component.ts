@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Todo } from './models/Todo';
 
 @Component({
     selector: 'my-app',

@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Todo } from '../../models/Todo';
+import { Todo } from '../../../../models/Todo';
 
 @Component({
     selector: 'todo-item',
@@ -12,5 +12,9 @@ export class TodoItem {
 
     deleteTodo() {
         this.deletableTodo.emit(this.todo.id);
+    }
+
+    toggleComplete() {
+        this.todo.isCompleted = !this.todo.isCompleted;
     }
 }

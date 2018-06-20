@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Todo } from '../../models/Todo';
-import { TodoService } from '../../core/services/todo.service';
-import { SearchService } from '../../core/services/search.service';
+import { Todo } from '../../../../models/Todo';
+import { TodoService } from '../../../../core/services/todo.service';
+import { SearchService } from '../../../../core/services/search.service';
 import { Subscription } from 'rxjs';
 
 @Component({

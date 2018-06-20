@@ -1,0 +1,11 @@
+<li class="todo-item" [ngClass]="{'completed': todo.isCompleted}">
+    <div class="todo-item-checkbox">
+        <i class="fa" [ngClass]="{'fa-square-o': !todo.isCompleted, 'fa-check-square-o': todo.isCompleted}" (click)="toggleComplete()"></i>
+    </div>
+    <div class="todo-item-text">
+        <span title="{{todo.todoName}}" [ngStyle]="{'text-decoration': todo.isCompleted ? 'line-through': 'none'}">{{todo.todoName}}</span>
+    </div>
+    <div class="todo-item-button">
+        <i class="fa fa-times" (click)="deleteTodo()"></i>
+    </div>
+</li>
