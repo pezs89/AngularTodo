@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Todo } from '../../models/Todo';
+import { Todo } from '../../../core/models/Todo';
 import { Subject } from 'rxjs';
 
 @Injectable()

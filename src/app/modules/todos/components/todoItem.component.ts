@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Todo } from '../../../../models/Todo';
+import { Todo } from '../../../core/models/Todo';
 
 @Component({
     selector: 'todo-item',

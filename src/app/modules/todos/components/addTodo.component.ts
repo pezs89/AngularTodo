@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { TodoService } from '../../../../core/services/todo.service';
+import { TodoService } from '../services/todo.service';
 
 @Component({
     selector: 'add-todo',
