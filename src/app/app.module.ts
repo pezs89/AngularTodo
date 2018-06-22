@@ -5,7 +5,7 @@ import { MatRippleModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-import { Header } from './components/HeaderComponent/header.component';
+import { Header } from './shared/HeaderComponent/header.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { SearchService } from './core/services/search.service';
