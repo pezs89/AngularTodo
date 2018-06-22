@@ -1,14 +1,13 @@
+@import 'fonts/font';
+
 @import 'constants/variables';
 @import '~font-awesome/scss/font-awesome';
 
 @import 'layout/layout';
+@import 'partials/links';
 
 @import 'components/addtodo.component';
 @import 'components/todoitem.component';
 @import 'components/todolist.component';
 @import 'components/header.component';
-
-
-.disabled {
-    opacity: 0.5;
-}
+@import 'components/page-not-found.component';

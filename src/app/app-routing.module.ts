@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { PageNotFound } from './shared/PageNotFoundComponent/page-not-found.component';
 
 const appRoutes: Routes = [
     {
@@ -10,6 +11,10 @@ const appRoutes: Routes = [
     {
         path: 'todos',
         loadChildren: 'app/modules/todos/todos.module#TodosModule'
+    },
+    {
+        path: '**',
+        component: PageNotFound
     }
 ]
 
