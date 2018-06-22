@@ -1,7 +1,6 @@
 <div class="todo-list">
     <ul>
-        <todo-item *ngFor="let todo of todoList | nameFilter: searchQuery"
-                    [todo]="todo"
-                    (deletableTodo)="deleteTodo($event)"></todo-item>
+        <todo-item *ngFor="let todo of todoList | nameFilter: searchQuery" [todo]="todo" (deletableTodo)="deleteTodo($event)"></todo-item>
+        <todo-item *ngFor="let todo of todoList | nameFilter: searchQuery" [todo]="todo" (deletableTodo)="deleteTodo($event)"></todo-item>
     </ul>
 </div>

@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'todo-list',
-    templateUrl: './todoList.component.html'
+    templateUrl: 'todoList.component.html'
 })
 
 export class TodoList implements OnInit, OnDestroy {

@@ -3,7 +3,7 @@ import { Todo } from '../../../core/models/Todo';
 
 @Component({
     selector: 'todo-item',
-    templateUrl: './todoItem.component.html',
+    templateUrl: 'todoItem.component.html',
 })
 
 export class TodoItem {

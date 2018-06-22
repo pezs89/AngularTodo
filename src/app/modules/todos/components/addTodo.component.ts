@@ -3,10 +3,10 @@ import { TodoService } from '../services/todo.service';
 
 @Component({
     selector: 'add-todo',
-    templateUrl: './addTodo.component.html'
+    templateUrl: 'addTodo.component.html'
 })
 
-export class AddTodoComponent {
+export class AddTodo {
     @ViewChild('newTodoInput') private el: ElementRef;
     private isValid: boolean = false;
 

@@ -4,4 +4,4 @@ import { Component } from '@angular/core';
     templateUrl: 'todos.component.html'
 })
 
-export class TodosComponent { }
+export class Todos { }

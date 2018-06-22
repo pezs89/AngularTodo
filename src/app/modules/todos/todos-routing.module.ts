@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { TodosComponent } from './todos.component';
+import { Todos } from './todos.component';
 
 const childRoutes: Routes = [
     {
         path: 'todos',
-        component: TodosComponent
+        component: Todos
     }
 ]
 

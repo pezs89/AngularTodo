@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { TodosComponent } from './todos.component';
-import { AddTodoComponent } from './components/addTodo.component';
+import { Todos } from './todos.component';
+import { AddTodo } from './components/addTodo.component';
 import { TodoItem } from './components/todoItem.component';
 import { TodoList } from './components/todoList.component';
 
@@ -16,8 +16,8 @@ import { TodosRoutingModule } from './todos-routing.module';
         TodosRoutingModule
     ],
     declarations: [
-        TodosComponent,
-        AddTodoComponent,
+        Todos,
+        AddTodo,
         TodoItem,
         TodoList,
         NameFilterPipe
