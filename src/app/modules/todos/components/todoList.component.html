@@ -1,6 +1,11 @@
 <div class="todo-list">
-    <ul>
-        <todo-item *ngFor="let todo of todoList | nameFilter: searchQuery" [todo]="todo" (deletableTodo)="deleteTodo($event)"></todo-item>
-        <todo-item *ngFor="let todo of todoList | nameFilter: searchQuery" [todo]="todo" (deletableTodo)="deleteTodo($event)"></todo-item>
+    <ul class="todo-list__items">
+        <todo-item *ngFor="let todo of todoList | nameFilter: searchQuery | filterCompletedTodos: false" [todo]="todo" (deletableTodo)="deleteTodo($event)"></todo-item>
+    </ul>
+    <div class="todo-list__button-container">
+        <button class="todo-list__button" (click)="showCompletedTodos()" [ngClass]="{'todo-list__button--disabled': isButtonEnabled}" [disabled]="isButtonEnabled">{{!isVisible ? 'Show completed todos'  : 'Hide completed todos'}}</button>
+    </div>
+    <ul class="todo-list__items todo-list__items--completed" *ngIf="isVisible">
+        <todo-item *ngFor="let todo of todoList | nameFilter: searchQuery | filterCompletedTodos: true" [todo]="todo" (deletableTodo)="deleteTodo($event)"></todo-item>
     </ul>
 </div>
