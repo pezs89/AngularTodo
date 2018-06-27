@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, DoCheck, OnChanges } from '@angular/core';
+import { Component, OnInit, OnDestroy, DoCheck } from '@angular/core';
 import { Todo } from '../../../core/models/Todo';
 import { TodoService } from '../services/todo.service';
 import { SearchService } from '../../../core/services/search.service';
@@ -22,6 +22,10 @@ export class TodoList implements OnInit, DoCheck, OnDestroy {
     }
 
     ngOnInit() {
+        this.todoService.getAllTodos().subscribe(todos =>
+            this.todoList = todos
+        );
+
         this.addNewTodoSubscription = this.todoService.todoObservable.subscribe(newTodo => {
             this.todoList.push(newTodo)
         })

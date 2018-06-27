@@ -15,7 +15,7 @@ export class AddTodo {
     addNewTodo(newTodo: string): void {
         this.setValidity(newTodo);
         if (this.isValid) {
-            this.todoService.addNewTodo(newTodo);
+            this.todoService.addNewTodo(newTodo)
             this.el.nativeElement.value = '';
         }
     }

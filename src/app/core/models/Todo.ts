@@ -6,8 +6,8 @@ export class Todo {
     id: string;
 
     constructor(todoName?: string, isCompleted?: boolean) {
+        this.id = v1();
         this.todoName = todoName;
         this.isCompleted = isCompleted;
-        this.id = v1();
     }
 }

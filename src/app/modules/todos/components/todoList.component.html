@@ -1,4 +1,5 @@
 <div class="todo-list">
+    {{todoList}}
     <ul class="todo-list__items">
         <todo-item *ngFor="let todo of todoList | nameFilter: searchQuery | filterCompletedTodos: false" [todo]="todo" (deletableTodo)="deleteTodo($event)"></todo-item>
     </ul>
