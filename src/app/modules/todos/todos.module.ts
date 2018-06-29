@@ -12,6 +12,7 @@ import { NameFilterPipe } from '../../core/pipes/name.pipe';
 import { FilterCompletedTodos } from '../../core/pipes/filterCompletedTodos.pipe';
 
 import { TodosRoutingModule } from './todos-routing.module';
+import { TodoSidebar } from './components/todoSidebar.component';
 
 @NgModule({
     imports: [
@@ -23,11 +24,15 @@ import { TodosRoutingModule } from './todos-routing.module';
         AddTodo,
         TodoItem,
         TodoList,
+        TodoSidebar,
         NameFilterPipe,
         FilterCompletedTodos
     ],
     providers: [
         TodoService
+    ],
+    entryComponents: [
+        TodoSidebar
     ]
 })
 
