@@ -26,13 +26,13 @@ export class TodoList implements OnInit, DoCheck, OnDestroy {
             this.todoList = todos
         );
 
-        this.addNewTodoSubscription = this.todoService.todoObservable.subscribe(newTodo => {
+        this.addNewTodoSubscription = this.todoService.todoObservable.subscribe(newTodo =>
             this.todoList.push(newTodo)
-        })
+        );
 
         this.filterQuerySubscription = this.searchService.searchQueryObserver.subscribe(newQuery => {
             this.searchQuery = newQuery;
-        })
+        });
     }
 
     deleteTodo(id: string) {

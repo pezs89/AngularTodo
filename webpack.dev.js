@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const webpackHotMiddleware = require('webpack-hot-middleware');
 const helpers = require('./helpers');
 const path = require('path');
 
@@ -45,13 +44,20 @@ const config = {
                 }, 'angular2-template-loader']
             },
             {
+                test: /[\/\\]@angular[\/\\]core[\/\\].+\.js$/,
+                parser: {
+                    system: true
+                },
+            },
+            {
                 test: /\.html$/,
                 loader: 'html-loader'
             },
             {
                 test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
                 loader: 'file-loader?name=assets/[name].[ext]'
-            }, {
+            },
+            {
                 test: /\.(css|scss|sass)$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',

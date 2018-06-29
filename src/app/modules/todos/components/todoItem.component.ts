@@ -1,7 +1,8 @@
-import { Component, Input, Output, EventEmitter, ComponentFactoryResolver } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ComponentFactoryResolver, ViewContainerRef } from '@angular/core';
 import { Todo } from '../../../core/models/Todo';
 import { TodoSidebar } from './todoSidebar.component';
 import { Todos } from '../todos.component';
+import { SidebarService } from '../../../core/services/sidebar.service';
 
 @Component({
     selector: 'todo-item',
@@ -13,8 +14,7 @@ export class TodoItem {
     @Output() deletableTodo = new EventEmitter<string>();
     todoSidebar: any;
 
-    constructor(private resolver: ComponentFactoryResolver,
-        private parent: Todos) {
+    constructor(private sidebarService: SidebarService, private todos: Todos) {
     }
 
     deleteTodo() {
@@ -26,9 +26,6 @@ export class TodoItem {
     }
 
     openSidebar() {
-        let factory = this.resolver.resolveComponentFactory(TodoSidebar);
-        this.todoSidebar = this.parent.container.createComponent(factory);
-        this.todoSidebar.instance.selectedTodo = this.todo;
-        this.todoSidebar.instance.viewContainerRef = this.parent.container;
+        this.sidebarService.openTodoSidebar(this.todos, TodoSidebar, this.todo);
     }
 }

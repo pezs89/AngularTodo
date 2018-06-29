@@ -1,0 +1,17 @@
+<input type="text" (click)="openCalendar()" />
+<div class="calendar" *ngIf="isOpened">
+    <div class="calendar__header">
+        <span>
+            <i class="fa fa-chevron-left" (click)="switchDate(false)"></i>
+        </span>
+        <span>{{currentDate.currentYear}} / {{months[currentDate.currentMonth].title}}</span>
+        <span>
+            <i class="fa fa-chevron-right" (click)="switchDate(true)"></i>
+        </span>
+    </div>
+    <div class="calendar__body">
+        <span *ngFor="let day of currentDate.currentDays">
+            {{day | json}}
+        </span>
+    </div>
+</div>

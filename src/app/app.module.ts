@@ -8,9 +8,11 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppComponent } from './app.component';
 import { Header } from './shared/HeaderComponent/header.component';
 import { PageNotFound } from './shared/PageNotFoundComponent/page-not-found.component';
+import { DatePicker } from './shared/DatePicker/datePicker.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { SearchService } from './core/services/search.service';
+import { SidebarService } from './core/services/sidebar.service';
 
 import { TodosModule } from './modules/todos/todos.module';
 import { TodoMockInMemorySerice } from './core/mock/todo-mock.service';
@@ -27,9 +29,10 @@ import { TodoMockInMemorySerice } from './core/mock/todo-mock.service';
     declarations: [
         AppComponent,
         Header,
-        PageNotFound
+        PageNotFound,
+        DatePicker
     ],
-    providers: [SearchService],
+    providers: [SearchService, SidebarService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

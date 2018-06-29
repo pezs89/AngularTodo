@@ -1,15 +1,18 @@
 import { Component, Input, ViewContainerRef } from "@angular/core";
 import { Todo } from "../../../core/models/Todo";
+import { SidebarService } from "../../../core/services/sidebar.service";
 
 @Component({
     templateUrl: 'todoSidebar.component.html'
-}) 
+})
 
 export class TodoSidebar {
     @Input() selectedTodo: Todo;
     @Input() viewContainerRef: ViewContainerRef;
 
-    closeSidebar() {
-        this.viewContainerRef.detach();
+    constructor(private sidebarService: SidebarService) { }
+
+    closeSidebar() {    
+        this.sidebarService.closeSidebar(this.viewContainerRef);
     }
 }
