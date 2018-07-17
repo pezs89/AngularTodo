@@ -7,7 +7,9 @@ import { Component, HostListener, Input, OnInit } from '@angular/core';
 
 export class DatePicker implements OnInit {
     @Input() selectedDate: Date;
+    @Input() dateFormat: string;
     isOpened: boolean = false;
+
     currentDate: any = {
         currentMonth: 0,
         currentYear: 0,
@@ -66,6 +68,7 @@ export class DatePicker implements OnInit {
     ngOnInit() {
         if (!this.selectedDate) {
             this.selectedDate = new Date();
+            this.selectedDate.setHours(0, 0, 0, 0);
             this.currentDate.currentMonth = this.getCurrentMonth(this.selectedDate);
             this.currentDate.currentYear = this.getCurrentYear(this.selectedDate);
             this.currentDate.currentDays = this.getCurrentMonthDays(this.selectedDate)
@@ -116,7 +119,59 @@ export class DatePicker implements OnInit {
         }
     }
 
-    getCurrentMonthDays(date: Date): any {
-        console.log(new Date(date.getFullYear(), date.getMonth()), new Date(date.getFullYear(), date.getMonth() + 1, 0))
+    getCurrentMonthDays(date: Date): Date[] {
+        const days = [];
+        const calendarStartDateNumber = this.getMonthViewFirstDayOfTheWeek(date);
+        const calendarEndDateNumber = this.getMonthViewLastDayOfTheWeek(date);
+
+        for (let i = calendarStartDateNumber; i <= calendarEndDateNumber; i++) {
+            days.push(new Date(date.getFullYear(), date.getMonth(), i));
+        }
+
+        return days;
+    }
+
+    getMonthViewFirstDayOfTheWeek(date: Date): number {
+        const monthStartDay = new Date(date.getFullYear(), date.getMonth()).getDay();
+        return this.getFirstOrLastDayOfTheMonthView(monthStartDay);
+    }
+
+    getMonthViewLastDayOfTheWeek(date: Date): number {
+        const monthEndDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+        const monthDayNumbers = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+        return monthDayNumbers + this.getFirstOrLastDayOfTheMonthView(monthEndDay.getDay(), false);
+    }
+
+    getFirstOrLastDayOfTheMonthView(dayOfTheWeek: number, isMonthStart: boolean = true) {
+        switch (dayOfTheWeek) {
+            case 0:
+                return isMonthStart ? -5 : 0;
+            case 1:
+                return isMonthStart ? 1 : 6;
+            case 2:
+                return isMonthStart ? 0 : 5;
+            case 3:
+                return isMonthStart ? -1 : 4;
+            case 4:
+                return isMonthStart ? -2 : 3;
+            case 5:
+                return isMonthStart ? -3 : 2;
+            case 6:
+                return isMonthStart ? -4 : 1;
+            default:
+                break;
+        }
+    }
+
+    selectDate(date: Date) {
+        this.selectedDate = date;
+    }
+
+    isSelectedDate(date: Date): boolean {
+        return Date.parse(this.selectedDate.toDateString()) === Date.parse(date.toDateString());
+    }
+
+    isPreviousMonth(date: Date): boolean {
+        return date.getMonth() !== this.currentDate.currentMonth;
     }
 }

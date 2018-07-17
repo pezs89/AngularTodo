@@ -1,17 +1,19 @@
-<input type="text" (click)="openCalendar()" />
-<div class="calendar" *ngIf="isOpened">
-    <div class="calendar__header">
-        <span>
-            <i class="fa fa-chevron-left" (click)="switchDate(false)"></i>
-        </span>
-        <span>{{currentDate.currentYear}} / {{months[currentDate.currentMonth].title}}</span>
-        <span>
-            <i class="fa fa-chevron-right" (click)="switchDate(true)"></i>
-        </span>
-    </div>
-    <div class="calendar__body">
-        <span *ngFor="let day of currentDate.currentDays">
-            {{day | json}}
-        </span>
+<div class="date-picker">
+    <input type="text" (click)="openCalendar()" [(ngModel)]="selectedDate"/>
+    <div class="calendar" *ngIf="isOpened">
+        <div class="calendar__header">
+            <span class="calendar__arrow">
+                <i class="fa fa-chevron-left" (click)="switchDate(false)"></i>
+            </span>
+            <span class="calendar__current">{{currentDate.currentYear}} / {{months[currentDate.currentMonth].title}}</span>
+            <span class="calendar__arrow">
+                <i class="fa fa-chevron-right" (click)="switchDate(true)"></i>
+            </span>
+        </div>
+        <div class="calendar__body">
+            <span class="calendar-day" [ngClass]="{'calendar-day--active' : isSelectedDate(day), 'calendar-day--disabled': isPreviousMonth(day)}" *ngFor="let day of currentDate.currentDays" (click)="selectDate(day)" [title]="day">
+                {{day.getDate()}}
+            </span>
+        </div>
     </div>
 </div>
