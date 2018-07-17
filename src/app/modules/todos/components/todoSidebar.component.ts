@@ -15,4 +15,8 @@ export class TodoSidebar {
     closeSidebar() {    
         this.sidebarService.closeSidebar(this.viewContainerRef);
     }
+
+    saveTodo() {
+        console.log(this.selectedTodo);
+    }
 }

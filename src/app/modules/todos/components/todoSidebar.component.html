@@ -1,3 +1,24 @@
-<div class="sidebar" (click)="closeSidebar()">
+<div class="sidebar">
+    <form (ngSubmit)="saveTodo()">
+        <div>
+            <label>Name</label>
+            <input type="text" [(ngModel)]="selectedTodo.todoName" name="todoName"/>
+        </div>
+        <div>
+            <label>Description</label>
+            <textarea [(ngModel)]="selectedTodo.description" name="description"></textarea>
+        </div>
+        <div>
+            <label>Created</label>
+            <input type="date" [(ngModel)]="selectedTodo.createdDate" name="createdDate"/>
+        </div>
+        <div>
+            <label>Due date</label>
+            <input type="date" [(ngModel)]="selectedTodo.dueDate" name="dueDate"/>
+        </div>
+        <div>
+            <button type="submit">Save</button>
+        </div>
+    </form>
     {{selectedTodo | json}}
 </div>

@@ -14,8 +14,7 @@ export class TodoItem {
     @Output() deletableTodo = new EventEmitter<string>();
     todoSidebar: any;
 
-    constructor(private sidebarService: SidebarService, private todos: Todos) {
-    }
+    constructor(private sidebarService: SidebarService, private todos: Todos) { }
 
     deleteTodo() {
         this.deletableTodo.emit(this.todo.id);

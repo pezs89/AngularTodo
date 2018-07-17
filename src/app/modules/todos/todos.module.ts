@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { Todos } from './todos.component';
 import { AddTodo } from './components/addTodo.component';
@@ -17,6 +18,7 @@ import { TodoSidebar } from './components/todoSidebar.component';
 @NgModule({
     imports: [
         CommonModule,
+        FormsModule,
         TodosRoutingModule
     ],
     declarations: [

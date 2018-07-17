@@ -1,9 +1,9 @@
-import { Component, ViewContainerRef } from '@angular/core';
+import { Component, ViewContainerRef, ViewChild } from '@angular/core';
 
 @Component({
     templateUrl: 'todos.component.html'
 })
 
 export class Todos {
-    constructor(public container: ViewContainerRef) {}
+    @ViewChild('todosModuleContainer', { read: ViewContainerRef }) container: ViewContainerRef;
 }
