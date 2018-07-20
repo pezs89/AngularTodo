@@ -13,10 +13,11 @@ export class TodoSidebar {
     constructor(private sidebarService: SidebarService) { }
 
     closeSidebar() {    
-        this.sidebarService.closeSidebar(this.viewContainerRef);
+        this.sidebarService.closeSidebar();
     }
 
     saveTodo() {
         console.log(this.selectedTodo);
+        this.closeSidebar();
     }
 }

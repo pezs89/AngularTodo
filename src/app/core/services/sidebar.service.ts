@@ -1,22 +1,22 @@
-import { Injectable, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
-import { Todos } from '../../modules/todos/todos.component';
+import { Injectable, ViewContainerRef, ComponentFactoryResolver, ComponentRef } from '@angular/core';
 
 @Injectable()
 export class SidebarService {
-    sidebar: any;
+    viewRef: ViewContainerRef;
     constructor(private resolver: ComponentFactoryResolver) { }
 
-    openTodoSidebar(todos: Todos, component: any, data: any) {
-        if (this.sidebar) {
-            this.sidebar.instance.viewContainerRef.detach();
-        }
-        let factory = this.resolver.resolveComponentFactory(component);
-        this.sidebar = todos.container.createComponent(factory);
-        this.sidebar.instance.selectedTodo = data;
-        this.sidebar.instance.viewContainerRef = todos.container;
+    setViewContainer(viewContainer: ViewContainerRef) {
+        this.viewRef = viewContainer;
     }
 
-    closeSidebar(viewContainerRef: ViewContainerRef) {
-        viewContainerRef.detach();
+    openTodoSidebar(component: any, data: any) {
+        this.closeSidebar();
+        let factory = this.resolver.resolveComponentFactory(component);
+        const componentRef: any = this.viewRef.createComponent(factory);
+        componentRef.instance.selectedTodo = data;
+    }
+
+    closeSidebar() {
+        this.viewRef.detach();
     }
 }
