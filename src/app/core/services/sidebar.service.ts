@@ -1,4 +1,4 @@
-import { Injectable, ViewContainerRef, ComponentFactoryResolver, ComponentRef } from '@angular/core';
+import { Injectable, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
 
 @Injectable()
 export class SidebarService {
@@ -11,12 +11,12 @@ export class SidebarService {
 
     openTodoSidebar(component: any, data: any) {
         this.closeSidebar();
-        let factory = this.resolver.resolveComponentFactory(component);
+        const factory = this.resolver.resolveComponentFactory(component);
         const componentRef: any = this.viewRef.createComponent(factory);
-        componentRef.instance.selectedTodo = data;
+        componentRef.instance.data = data;
     }
 
     closeSidebar() {
-        this.viewRef.detach();
+        this.viewRef.clear();
     }
 }

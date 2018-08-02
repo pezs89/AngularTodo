@@ -1,24 +1,23 @@
-<div class="sidebar">
-    <form (ngSubmit)="saveTodo()">
+<div class="sidebar" clickOutside (clickedOutSide)="onClickedOutside($event)" [excludedClasses]="'text-button'">
+    <form (ngSubmit)="saveTodo(todoForm)" #todoForm="ngForm">
         <div>
             <label>Name</label>
-            <input type="text" [(ngModel)]="selectedTodo.todoName" name="todoName"/>
+            <input type="text" [(ngModel)]="data.todoName" name="todoName"/>
         </div>
         <div>
             <label>Description</label>
-            <textarea [(ngModel)]="selectedTodo.description" name="description"></textarea>
+            <textarea [(ngModel)]="data.description" name="description"></textarea>
         </div>
         <div>
             <label>Created</label>
-            <input type="date" [(ngModel)]="selectedTodo.createdDate" name="createdDate"/>
+            <input type="date" [(ngModel)]="data.createdDate" name="createdDate"/>
         </div>
         <div>
             <label>Due date</label>
-            <input type="date" [(ngModel)]="selectedTodo.dueDate" name="dueDate"/>
+            <input type="date" [(ngModel)]="data.dueDate" name="dueDate"/>
         </div>
         <div>
             <button type="submit">Save</button>
         </div>
     </form>
-    {{selectedTodo | json}}
 </div>

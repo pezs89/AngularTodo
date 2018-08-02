@@ -14,6 +14,7 @@ import { FilterCompletedTodos } from '../../core/pipes/filterCompletedTodos.pipe
 
 import { TodosRoutingModule } from './todos-routing.module';
 import { TodoSidebar } from './components/todoSidebar.component';
+import { ClickOutsideDirective } from '../../shared/ClickOutside/clickOutside.directive';
 
 @NgModule({
     imports: [
@@ -28,7 +29,8 @@ import { TodoSidebar } from './components/todoSidebar.component';
         TodoList,
         TodoSidebar,
         NameFilterPipe,
-        FilterCompletedTodos
+        FilterCompletedTodos,
+        ClickOutsideDirective
     ],
     providers: [
         TodoService

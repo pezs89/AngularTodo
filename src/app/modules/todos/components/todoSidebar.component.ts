@@ -1,4 +1,4 @@
-import { Component, Input, ViewContainerRef } from "@angular/core";
+import { Component, Input, ElementRef } from "@angular/core";
 import { Todo } from "../../../core/models/Todo";
 import { SidebarService } from "../../../core/services/sidebar.service";
 
@@ -7,17 +7,22 @@ import { SidebarService } from "../../../core/services/sidebar.service";
 })
 
 export class TodoSidebar {
-    @Input() selectedTodo: Todo;
-    @Input() viewContainerRef: ViewContainerRef;
+    @Input() data: Todo;
 
-    constructor(private sidebarService: SidebarService) { }
+    constructor(private sidebarService: SidebarService, public elementRef: ElementRef) { }
 
-    closeSidebar() {    
+    closeSidebar() {
         this.sidebarService.closeSidebar();
     }
 
-    saveTodo() {
-        console.log(this.selectedTodo);
+    saveTodo(todoForm: FormData) {
+        console.log(this.data, todoForm);
         this.closeSidebar();
+    }
+
+    onClickedOutside(isOutside: boolean) {
+        if (isOutside) {
+            this.closeSidebar();
+        }
     }
 }
