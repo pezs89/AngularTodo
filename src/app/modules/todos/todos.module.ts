@@ -8,12 +8,13 @@ import { TodoItem } from './components/todoItem.component';
 import { TodoList } from './components/todoList.component';
 
 import { TodoService } from './services/todo.service';
+import { AuthGuard } from '../../core/guards/auth.guard';
 
 import { NameFilterPipe } from '../../core/pipes/name.pipe';
 import { FilterCompletedTodos } from '../../core/pipes/filterCompletedTodos.pipe';
 
-import { TodosRoutingModule } from './todos-routing.module';
 import { TodoSidebar } from './components/todoSidebar.component';
+import { TodosRoutingModule } from './todos-routing.module';
 import { ClickOutsideDirective } from '../../shared/ClickOutside/clickOutside.directive';
 
 @NgModule({

@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PageNotFound } from './shared/PageNotFoundComponent/page-not-found.component';
+import { AuthGuard } from './core/guards/auth.guard';
 
 const appRoutes: Routes = [
     {
         path: '',
-        redirectTo: '/todos',
+        redirectTo: '/login',
         pathMatch: 'full'
+    },
+    {
+        path: 'login',
+        loadChildren: 'app/modules/login/login.module#LoginModule'
     },
     {
         path: 'todos',

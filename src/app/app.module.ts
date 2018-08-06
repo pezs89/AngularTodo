@@ -15,12 +15,17 @@ import { SearchService } from './core/services/search.service';
 import { SidebarService } from './core/services/sidebar.service';
 
 import { TodosModule } from './modules/todos/todos.module';
+import { LoginModule } from './modules/login/login.module';
+import { AuthService } from './core/services/auth.service';
+import { AuthGuard } from './core/guards/auth.guard';
 import { TodoMockInMemorySerice } from './core/mock/todo-mock.service';
+import { UserProfile } from './shared/UserProfile/user-profile.component';
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
         BrowserAnimationsModule,
+        LoginModule,
         TodosModule,
         AppRoutingModule,
         HttpClientModule,
@@ -29,10 +34,16 @@ import { TodoMockInMemorySerice } from './core/mock/todo-mock.service';
     declarations: [
         AppComponent,
         Header,
+        UserProfile,
         PageNotFound,
         DatePicker
     ],
-    providers: [SearchService, SidebarService],
+    providers: [
+        SearchService,
+        SidebarService,
+        AuthService,
+        AuthGuard
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
