@@ -2,9 +2,10 @@
     <div class="layout-sidebar"></div>
     <div class="layout-main">
         <i class="fa fa-search"></i>
-        <input class="search-input" type="text" placeholder="Search here..." #searchInput (keyup)="submitSearchValue(searchInput.value)"/>
+        <input class="search-input" type="text" placeholder="Search here..." #searchInput (keyup)="submitSearchValue(searchInput.value)"
+        />
     </div>
     <div class="layout-sidebar">
-        <user-profile></user-profile>
+        <user-profile [loggedUser]="user"></user-profile>
     </div>
 </header>

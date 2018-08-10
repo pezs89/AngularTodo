@@ -3,8 +3,7 @@ import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../models/User';
 import { Credentials } from '../interfaces/credentials';
-import { Observable, Subject } from '../../../../node_modules/rxjs';
-import { of } from 'rxjs';
+import { Observable, BehaviorSubject } from '../../../../node_modules/rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -13,25 +12,30 @@ const httpOptions = {
 @Injectable()
 export class AuthService {
   private user: User;
-  private isLoggedIn: Subject<boolean> = new Subject<boolean>();
+  private sessionId: BehaviorSubject<string> = new BehaviorSubject<string>(localStorage.getItem('sessionId'));
 
   constructor(private http: HttpClient, private router: Router) { }
 
   login(loginCredentials: Credentials) {
-    this.http.post('api/login', loginCredentials, httpOptions).subscribe((resp) => {
-      this.getUserInformations(resp as Credentials);
+    this.http.post('api/login', loginCredentials, httpOptions).subscribe((resp: Credentials) => {
+      this.getUserInformations(resp.email);
     })
   }
 
   logout() {
     this.user = null;
-    this.isLoggedIn.next(false);
+    localStorage.removeItem('sessionId');
+    localStorage.removeItem('email');
+    this.sessionId.next(localStorage.getItem('sessionId'));
+    this.navigateTo('login');
   }
 
-  getUserInformations(userCredentials: Credentials, ) {
+  getUserInformations(userEmail: string) {
     this.http.get('api/user').subscribe((resp: User[]) => {
-      this.user = resp.find((user: User) => user.email === userCredentials.email);
+      this.user = resp.find((user: User) => user.email === userEmail);
       localStorage.setItem('sessionId', this.user.id.toString());
+      localStorage.setItem('email', this.user.email);
+      this.setLoggedIn();
       this.navigateTo('todos');
     })
   }
@@ -40,8 +44,8 @@ export class AuthService {
     this.router.navigate([`/${route}`]);
   }
 
-  isAuthenticated(): Observable<boolean> {
-    return this.isLoggedIn.asObservable();
+  isAuthenticated(): Observable<string> {
+    return this.sessionId.asObservable();
   }
 
   getLoggedUser(): User {
@@ -49,6 +53,6 @@ export class AuthService {
   }
 
   setLoggedIn() {
-    this.isLoggedIn.next(true);
+    this.sessionId.next(localStorage.getItem('sessionId'));
   }
 }

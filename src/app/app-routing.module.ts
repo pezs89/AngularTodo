@@ -6,16 +6,16 @@ import { AuthGuard } from './core/guards/auth.guard';
 const appRoutes: Routes = [
     {
         path: '',
-        redirectTo: '/login',
+        redirectTo: '/todos',
         pathMatch: 'full'
-    },
-    {
-        path: 'login',
-        loadChildren: 'app/modules/login/login.module#LoginModule'
     },
     {
         path: 'todos',
         loadChildren: 'app/modules/todos/todos.module#TodosModule'
+    },
+    {
+        path: 'login',
+        loadChildren: 'app/modules/login/login.module#LoginModule'
     },
     {
         path: '**',

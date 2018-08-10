@@ -1,3 +1,6 @@
 <div>
-  
+  <!-- {{userData | json}} -->
+  <img src="{{userData.profilePicture}}"/>
+  <button (click)="logout()">Logout</button>
+  <div [ngStyle]="{'background-image': 'url(' + userData.profilePicture + ')'}" class="asd"></div>
 </div>
