@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Subject, Observable } from 'rxjs';
 import { Todo } from '../../../core/models/todo.model';
 import { map } from 'rxjs/operators';
+import { TodoListResponse } from '../../../core/interfaces/todo-list-response.interface';
 
 @Injectable()
 export class TodoService {
@@ -12,7 +13,7 @@ export class TodoService {
     constructor(private http: HttpClient) { }
 
     getAllTodos(): Observable<Todo[]> {
-        return this.http.get<any>(`api/todos`).pipe(map(response => {
+        return this.http.get<TodoListResponse[]>(`api/todos`).pipe(map((response: TodoListResponse[]) => {
             return this.transformMultipleTodosList(response)
         }));
     }
@@ -27,7 +28,7 @@ export class TodoService {
         })
     }
 
-    private transformMultipleTodosList(multipleTodoListResponse: any) {
-       return multipleTodoListResponse.map((response: any) => response.todoList).reduce((acc, val) => acc.concat(val), []);
+    private transformMultipleTodosList(multipleTodoListResponse: TodoListResponse[]): Todo[] {
+        return multipleTodoListResponse.map((response: TodoListResponse) => response.todoList).reduce((acc: Todo[], val: Todo[]) => [...acc, ...val], []);
     }
 }

@@ -20,6 +20,7 @@ import { AuthService } from './core/services/auth.service';
 import { AuthGuard } from './core/guards/auth.guard';
 import { TodoMockInMemorySerice } from './core/mock/todo-mock.service';
 import { UserProfile } from './shared/UserProfile/user-profile.component';
+
 @NgModule({
     imports: [
         BrowserModule,

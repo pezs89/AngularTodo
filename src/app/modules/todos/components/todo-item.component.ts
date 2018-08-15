@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, ComponentFactoryResolver, ViewContainerRef } from '@angular/core';
 import { Todo } from '../../../core/models/todo.model';
-import { TodoSidebar } from './todo-sidebar.component';
+import { TodoSidebarComponent } from './todo-sidebar.component';
 import { SidebarService } from '../../../core/services/sidebar.service';
 
 @Component({
@@ -24,6 +24,6 @@ export class TodoItemComponent {
     }
 
     openSidebar() {
-        this.sidebarService.openTodoSidebar(TodoSidebar, this.todo);
+        this.sidebarService.openTodoSidebar(TodoSidebarComponent, this.todo);
     }
 }
