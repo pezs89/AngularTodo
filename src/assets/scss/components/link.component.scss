@@ -1,0 +1,20 @@
+.link {
+  width: calc(100% - 30px);
+  outline: none;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 1);
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  &:visited {
+    color: rgba(0, 0, 0, 1);
+  }
+  &:hover {
+    color: $header-color;
+  }
+  &__nav {
+    &--active {
+      background-color: rgba(14, 145, 197, 0.2);
+    }
+  }
+}

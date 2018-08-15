@@ -1,7 +1,7 @@
 <div class="navbar">
-    <ul *ngFor="let navItem of navItems">
-        <li>
-            <a [routerLink]="[baseUrl, navItem.id]">{{navItem.name}}</a>
+    <ul class="navbar__list">
+        <li class="navbar__item" *ngFor="let navItem of navItems">
+            <link-component [navItem]="navItem" [baseUrl]="baseUrl"></link-component>
         </li>
-    </ul> 
+    </ul>
 </div>

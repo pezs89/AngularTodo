@@ -6,17 +6,18 @@ import { TodosComponent } from './todos.component';
 import { AddTodoComponent } from './components/add-todo.component';
 import { TodoItemComponent } from './components/todo-item.component';
 import { TodoListComponent } from './components/todo-list.component';
+import { TodoSidebarComponent } from './components/todo-sidebar.component';
 
 import { TodoService } from './services/todo.service';
 import { TodoRouteChangeResolver } from './services/todo-route-change-resolver.service';
 
 import { NameFilterPipe } from '../../core/pipes/name.pipe';
 import { FilterCompletedTodos } from '../../core/pipes/filter-completed-todos.pipe';
-
-import { TodoSidebarComponent } from './components/todo-sidebar.component';
-import { TodosRoutingModule } from './todos-routing.module';
 import { NavBarComponent } from '../../shared/NavBar/navbar.component';
 import { ClickOutsideDirective } from '../../shared/ClickOutside/clickOutside.directive';
+import { LinkComponent } from '../../shared/link/link.component';
+
+import { TodosRoutingModule } from './todos-routing.module';
 
 @NgModule({
     imports: [
@@ -33,7 +34,8 @@ import { ClickOutsideDirective } from '../../shared/ClickOutside/clickOutside.di
         NavBarComponent,
         NameFilterPipe,
         FilterCompletedTodos,
-        ClickOutsideDirective
+        ClickOutsideDirective,
+        LinkComponent
     ],
     providers: [
         TodoService,
