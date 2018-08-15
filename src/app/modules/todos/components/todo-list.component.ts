@@ -1,30 +1,33 @@
 import { Component, OnInit, OnDestroy, DoCheck } from '@angular/core';
-import { Todo } from '../../../core/models/Todo';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { Todo } from '../../../core/models/todo.model';
 import { TodoService } from '../services/todo.service';
 import { SearchService } from '../../../core/services/search.service';
-import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'todo-list',
-    templateUrl: 'todoList.component.html'
+    templateUrl: 'todo-list.component.html'
 })
 
-export class TodoList implements OnInit, DoCheck, OnDestroy {
+export class TodoListComponent implements OnInit, DoCheck, OnDestroy {
     public todoList: Todo[] = [];
     public searchQuery: string = '';
     public isVisible: boolean = false;
     public isButtonEnabled: boolean = false;
     private addNewTodoSubscription: Subscription;
     private filterQuerySubscription: Subscription;
+    private routeChangeSubscription: Subscription;
 
     constructor(private todoService: TodoService,
-        private searchService: SearchService) {
+        private searchService: SearchService,
+        private route: ActivatedRoute) {
     }
 
     ngOnInit() {
-        this.todoService.getAllTodos().subscribe(todos =>
-            this.todoList = todos
-        );
+        this.routeChangeSubscription = this.route.data.subscribe((data: { todoList: Todo[] }) => {
+            this.todoList = data.todoList;
+        })
 
         this.addNewTodoSubscription = this.todoService.todoObservable.subscribe(newTodo =>
             this.todoList.push(newTodo)
@@ -58,5 +61,6 @@ export class TodoList implements OnInit, DoCheck, OnDestroy {
     ngOnDestroy() {
         this.addNewTodoSubscription.unsubscribe();
         this.filterQuerySubscription.unsubscribe();
+        this.routeChangeSubscription.unsubscribe();
     }
 }

@@ -11,7 +11,8 @@ const appRoutes: Routes = [
     },
     {
         path: 'todos',
-        loadChildren: 'app/modules/todos/todos.module#TodosModule'
+        loadChildren: 'app/modules/todos/todos.module#TodosModule',
+        canActivate: [AuthGuard]
     },
     {
         path: 'login',

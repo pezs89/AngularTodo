@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { User } from '../models/User';
-import { Credentials } from '../interfaces/credentials';
+import { User } from '../models/user.model';
+import { Credentials } from '../interfaces/credentials.interface';
 import { Observable, BehaviorSubject } from '../../../../node_modules/rxjs';
 
 const httpOptions = {
@@ -35,8 +35,8 @@ export class AuthService {
       this.user = resp.find((user: User) => user.email === userEmail);
       localStorage.setItem('sessionId', this.user.id.toString());
       localStorage.setItem('email', this.user.email);
-      this.setLoggedIn();
       this.navigateTo('todos');
+      this.setLoggedIn();
     })
   }
 

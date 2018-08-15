@@ -1,4 +1,9 @@
 <div #todosModuleContainer class="todos-module">
-    <add-todo></add-todo>
-    <todo-list></todo-list>
+    <div class="todos-module__nav">
+        <nav-bar></nav-bar>
+    </div>
+    <div class="todos-module__main">
+        <add-todo></add-todo>
+        <router-outlet></router-outlet>
+    </div>
 </div>

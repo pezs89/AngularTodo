@@ -1,15 +1,13 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../core/services/auth.service';
-import { Subscription } from '../../../../node_modules/rxjs';
 
 @Component({
   templateUrl: 'login.component.html'
 })
 
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  private isLoggedIn: Subscription;
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService) { }
 
@@ -18,15 +16,6 @@ export class LoginComponent implements OnInit, OnDestroy {
       email: ['', Validators.compose([Validators.required, Validators.email])],
       password: ['', Validators.required]
     })
-    this.isLoggedIn = this.authService.isAuthenticated().subscribe(sessionId => {
-      if (sessionId) {
-        this.authService.navigateTo('todos');
-      }
-    })
-  }
-
-  ngOnDestroy() {
-    this.isLoggedIn.unsubscribe();
   }
 
   login() {

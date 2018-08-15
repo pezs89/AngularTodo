@@ -5,7 +5,7 @@ import { SidebarService } from '../../core/services/sidebar.service';
     templateUrl: 'todos.component.html'
 })
 
-export class Todos implements OnInit {
+export class TodosComponent implements OnInit {
     @ViewChild('todosModuleContainer', { read: ViewContainerRef }) container: ViewContainerRef;
 
     constructor(private sidebarService: SidebarService) { }

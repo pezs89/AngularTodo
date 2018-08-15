@@ -1,0 +1,13 @@
+.todos-module {
+  height: 100%;
+  display: flex;
+  &__nav {
+    width: 20%;
+    background: #FFF;
+  }
+  &__main {
+    width: calc(80% - 20px);
+    padding: 10px;
+    overflow: auto;
+  }
+}

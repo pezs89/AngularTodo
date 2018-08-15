@@ -1,12 +1,12 @@
 import { Component, Input, ElementRef } from "@angular/core";
-import { Todo } from "../../../core/models/Todo";
+import { Todo } from "../../../core/models/todo.model";
 import { SidebarService } from "../../../core/services/sidebar.service";
 
 @Component({
-    templateUrl: 'todoSidebar.component.html'
+    templateUrl: 'todo-sidebar.component.html'
 })
 
-export class TodoSidebar {
+export class TodoSidebarComponent {
     @Input() data: Todo;
 
     constructor(private sidebarService: SidebarService, public elementRef: ElementRef) { }
@@ -16,7 +16,6 @@ export class TodoSidebar {
     }
 
     saveTodo(todoForm: FormData) {
-        console.log(this.data, todoForm);
         this.closeSidebar();
     }
 

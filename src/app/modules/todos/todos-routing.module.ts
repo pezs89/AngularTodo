@@ -1,13 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { Todos } from './todos.component';
-import { AuthGuard } from '../../core/guards/auth.guard';
+import { TodosComponent } from './todos.component';
+import { TodoListComponent } from './components/todo-list.component';
+import { TodoRouteChangeResolver } from './services/todo-route-change-resolver.service';
 
 const childRoutes: Routes = [
     {
         path: 'todos',
-        component: Todos,
-        canActivate: [AuthGuard]
+        component: TodosComponent,
+        children: [
+            { path: '', redirectTo: 'all', pathMatch: 'full' },
+            {
+                path: ':id', component: TodoListComponent, resolve: {
+                    todoList: TodoRouteChangeResolver
+                }
+            }
+        ]
     }
 ]
 

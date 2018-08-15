@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from '../../../../node_modules/rxjs';
 import { SearchService } from '../../core/services/search.service';
 import { AuthService } from '../../core/services/auth.service';
-import { User } from '../../core/models/User';
+import { User } from '../../core/models/user.model';
 
 @Component({
     selector: 'header-component',
@@ -20,7 +20,6 @@ export class Header implements OnInit, OnDestroy {
         this.authserviceSubscription = this.authService.isAuthenticated().subscribe((sessionId: string) => {
             this.isAuthenticated = !!sessionId;
             this.user = this.authService.getLoggedUser();
-            console.log(this.user)
         })
     }
 

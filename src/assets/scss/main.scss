@@ -6,6 +6,8 @@
 @import 'layout/layout';
 @import 'partials/links';
 
+@import 'components/navbar.component';
+@import 'components/todos.component';
 @import 'components/addtodo.component';
 @import 'components/todoitem.component';
 @import 'components/todolist.component';

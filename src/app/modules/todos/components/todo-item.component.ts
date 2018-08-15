@@ -1,14 +1,14 @@
 import { Component, Input, Output, EventEmitter, ComponentFactoryResolver, ViewContainerRef } from '@angular/core';
-import { Todo } from '../../../core/models/Todo';
-import { TodoSidebar } from './todoSidebar.component';
+import { Todo } from '../../../core/models/todo.model';
+import { TodoSidebar } from './todo-sidebar.component';
 import { SidebarService } from '../../../core/services/sidebar.service';
 
 @Component({
     selector: 'todo-item',
-    templateUrl: 'todoItem.component.html',
+    templateUrl: 'todo-item.component.html',
 })
 
-export class TodoItem {
+export class TodoItemComponent {
     @Input() todo: Todo;
     @Output() deletableTodo = new EventEmitter<string>();
     todoSidebar: any;

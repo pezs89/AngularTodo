@@ -2,19 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { Todos } from './todos.component';
-import { AddTodo } from './components/addTodo.component';
-import { TodoItem } from './components/todoItem.component';
-import { TodoList } from './components/todoList.component';
+import { TodosComponent } from './todos.component';
+import { AddTodoComponent } './components/add-todo.component';
+import { TodoItemComponent } from './components/todo-item.component';
+import { TodoListComponent } from './components/todo-list.component';
 
 import { TodoService } from './services/todo.service';
-import { AuthGuard } from '../../core/guards/auth.guard';
+import { TodoRouteChangeResolver } from './services/todo-route-change-resolver.service';
 
 import { NameFilterPipe } from '../../core/pipes/name.pipe';
-import { FilterCompletedTodos } from '../../core/pipes/filterCompletedTodos.pipe';
+import { FilterCompletedTodos } from '../../core/pipes/filter-completed-todos.pipe';
 
-import { TodoSidebar } from './components/todoSidebar.component';
+import { TodoSidebarComponent } from './components/todo-sidebar.component';
 import { TodosRoutingModule } from './todos-routing.module';
+import { NavBarComponent } from '../../shared/NavBar/navbar.component';
 import { ClickOutsideDirective } from '../../shared/ClickOutside/clickOutside.directive';
 
 @NgModule({
@@ -24,20 +25,22 @@ import { ClickOutsideDirective } from '../../shared/ClickOutside/clickOutside.di
         TodosRoutingModule
     ],
     declarations: [
-        Todos,
-        AddTodo,
-        TodoItem,
-        TodoList,
-        TodoSidebar,
+        TodosComponent,
+        AddTodoComponent,
+        TodoItemComponent,
+        TodoListComponent,
+        TodoSidebarComponent,
+        NavBarComponent,
         NameFilterPipe,
         FilterCompletedTodos,
         ClickOutsideDirective
     ],
     providers: [
-        TodoService
+        TodoService,
+        TodoRouteChangeResolver
     ],
     entryComponents: [
-        TodoSidebar
+        TodoSidebarComponent
     ]
 })
 

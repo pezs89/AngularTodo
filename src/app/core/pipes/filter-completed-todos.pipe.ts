@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Todo } from '../models/Todo';
+import { Todo } from '../models/todo.model';
 
 @Pipe({
     name: 'filterCompletedTodos',

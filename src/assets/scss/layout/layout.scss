@@ -6,20 +6,18 @@ html {
 
 body {
     margin: 0;
-    overflow: auto;
+    overflow: hidden;
     height: 100%;
     font-size: 13px;
-    // font-family: "Raleway";
 }
 
 header {
-    position: fixed;
     height: 40px;
     width: 100%;
     display: flex;
 }
 
 main {
-    width: 60%;
-    margin: 60px auto 0 auto;
+    width: 100%;
+    height: calc(100% - 50px);
 }
