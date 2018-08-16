@@ -35,38 +35,42 @@ const config = {
     },
     module: {
         rules: [{
-                test: /\.ts$/,
-                loaders: [{
-                    loader: 'awesome-typescript-loader',
-                    options: {
-                        transpileOnly: true
-                    }
-                }, 'angular2-template-loader']
+            test: /\.ts$/,
+            loaders: [{
+                loader: 'awesome-typescript-loader',
+                options: {
+                    transpileOnly: true
+                }
+            }, 'angular2-template-loader']
+        },
+        {
+            test: /[\/\\]@angular[\/\\]core[\/\\].+\.js$/,
+            parser: {
+                system: true
             },
-            {
-                test: /[\/\\]@angular[\/\\]core[\/\\].+\.js$/,
-                parser: {
-                    system: true
-                },
-            },
-            {
-                test: /\.html$/,
-                loader: 'html-loader'
-            },
-            {
-                test: /\.(png|jpg|gif|svg|woff|woff2|ttf|eot|ico)$/,
-                loader: 'file-loader?name=./assets/[name].[ext]'
-            },
-            {
-                test: /\.(css|scss|sass)$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: [
-                        'css-loader',
-                        'sass-loader'
-                    ]
-                })
-            }
+        },
+        {
+            test: /\.html$/,
+            loader: 'html-loader'
+        },
+        {
+            test: /\.(woff|woff2|ttf|eot|ico)$/,
+            loader: 'file-loader?name=./assets/[name].[ext]'
+        },
+        {
+            test: /\.(png|jpg|gif|svg)$/,
+            loader: 'file-loader?name=img/[name].[ext]'
+        },
+        {
+            test: /\.(css|scss|sass)$/,
+            use: ExtractTextPlugin.extract({
+                fallback: 'style-loader',
+                use: [
+                    'css-loader',
+                    'sass-loader'
+                ]
+            })
+        }
         ]
     },
     plugins: [

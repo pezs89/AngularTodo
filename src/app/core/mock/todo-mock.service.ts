@@ -3,8 +3,10 @@ import { v1 } from 'uuid';
 
 export class TodoMockInMemorySerice implements InMemoryDbService {
     createDb() {
-        let todos = [{
-            id: 1,
+        const todos = [{
+            id: v1(),
+            name: 'Recent',
+            iconClass: 'fa-pencil',
             todoList: [
                 { id: v1(), todoName: 'test1', description: 'Lorem ipsum', isCompleted: false },
                 { id: v1(), todoName: 'test2', description: 'Lorem ipsum', isCompleted: false },
@@ -12,7 +14,9 @@ export class TodoMockInMemorySerice implements InMemoryDbService {
             ]
         },
         {
-            id: 2,
+            id: v1(),
+            name: 'Movies',
+            iconClass: 'fa-film',
             todoList: [
                 { id: v1(), todoName: 'test4', description: 'Lorem ipsum10', isCompleted: false },
                 { id: v1(), todoName: 'test5', description: 'Lorem ipsum20', isCompleted: true },
@@ -21,14 +25,14 @@ export class TodoMockInMemorySerice implements InMemoryDbService {
         }
         ];
 
-        let user = [{
+        const user = [{
             id: 1,
             name: 'Zsolt Peter',
             email: 'zpeter@login.com',
-            profilePicture: './assets/download.jpg'
+            profilePicture: '/img/dummy-profile-pic.jpg'
         }];
 
-        let login = [{
+        const login = [{
             id: 1,
             email: 'zpeter@login.com',
             password: 'Abcd1234'

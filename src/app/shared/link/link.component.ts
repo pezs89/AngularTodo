@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Route } from '../../core/interfaces/route.interface';
 
 @Component({
   selector: 'link-component',
@@ -6,6 +7,9 @@ import { Component, Input } from '@angular/core';
 })
 
 export class LinkComponent {
-  @Input() navItem: any;
+  @Input() navItem: Route;
   @Input() baseUrl: string;
+  get hasIcon() {
+    return !!this.navItem.iconClass;
+  }
 }

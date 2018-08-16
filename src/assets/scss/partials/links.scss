@@ -2,9 +2,9 @@ a {
     outline: none;
     text-decoration: #fff;
     transition: color 0.2s ease-in-out;
-    &:visited {
-        color: #fff;
-    }
+    // &:visited {
+    //     color: #fff;
+    // }
 
     &:hover {
         color: $header-color;

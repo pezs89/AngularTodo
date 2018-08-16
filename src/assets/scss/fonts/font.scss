@@ -1,4 +1,5 @@
-// @font-face {
-//     font-family: "Raleway";
-//     src: url('https://fonts.googleapis.com/css?family=Roboto') format("woff2");
-// }
+@font-face {
+  font-family: "Raleway";
+  src: url(/assets/Montserrat-Light.ttf) format("ttf"), url(/assets/Montserrat-Medium.ttf) format("ttf");
+  font-weight: 300;
+}

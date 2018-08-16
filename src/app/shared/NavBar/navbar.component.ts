@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Route } from '@angular/router';
 
 @Component({
   selector: 'nav-bar',
@@ -6,6 +7,6 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 
 export class NavBarComponent {
-  baseUrl: string = '/todos';
-  @Input() navItems = [{ name: 'asd', id: 1 }, { name: 'asd1', id: 2 }];
+  @Input() baseUrl: string;
+  @Input() navItems: Route[];
 }

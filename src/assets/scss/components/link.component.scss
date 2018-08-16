@@ -1,20 +1,46 @@
 .link {
-  width: calc(100% - 30px);
+  position: relative;
   outline: none;
   text-decoration: none;
   color: rgba(0, 0, 0, 1);
   display: flex;
   align-items: center;
   padding: 10px 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: nowrap;
   &:visited {
-    color: rgba(0, 0, 0, 1);
+    &:not(.link__nav--active) {
+      color: rgba(0, 0, 0, 1);
+    }
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    right: 10px;
+    width: 0;
+    bottom: 5px;
+    background: $header-color;
+    height: 1px;
+    transition: width 0.2s ease-in-out, color 0.2s ease-in-out;
   }
   &:hover {
     color: $header-color;
+    &:before {
+      left: 10px;
+      right: auto;
+      width: calc(100% - 20px);
+    }
   }
   &__nav {
     &--active {
-      background-color: rgba(14, 145, 197, 0.2);
+      color: $header-color;
+      &::before {
+        visibility: visible;
+      }
     }
+  }
+  &__icon {
+    padding-right: 5px;
   }
 }

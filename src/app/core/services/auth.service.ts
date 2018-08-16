@@ -49,6 +49,9 @@ export class AuthService {
   }
 
   getLoggedUser(): User {
+    if (!this.user) {
+      this.getUserInformations(localStorage.getItem('email'));
+    }
     return { ...this.user };
   }
 

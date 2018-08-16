@@ -9,12 +9,12 @@ export class TodoRouteChangeResolver implements Resolve<Todo[]>{
   constructor(private todoService: TodoService) { }
 
   resolve(route: ActivatedRouteSnapshot): Observable<Todo[]> {
-    const id = +route.paramMap.get('id');
+    const todoListId = route.paramMap.get('id');
 
-    if (isNaN(id)) {
+    if (todoListId === 'all') {
       return this.todoService.getAllTodos();
     } else {
-      return this.todoService.getTodos(+id);
+      return this.todoService.getTodos(todoListId);
     }
   }
 }
