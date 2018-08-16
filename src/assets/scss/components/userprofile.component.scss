@@ -1,12 +1,19 @@
 .user-profile {
-    padding: 0 10px;
-    display: flex;
-    justify-content: flex-end;
-    &__picture {
-        height: 40px;
-        width: 40px;
-        background-repeat: no-repeat;
-        background-size: cover;
-        border-radius: 50%;
-    }
+  padding: 0 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  &__name {
+    font-weight: 300;
+    color: #fff;
+    margin: 0;
+    padding: 0 5px;
+  }
+  &__picture {
+    height: 40px;
+    width: 40px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+  }
 }
