@@ -1,0 +1,6 @@
+<div class="input-group" [formGroup]="groupName">
+    <label *ngIf="labelContent" class="input-group__label" [for]="inputName">{{labelContent}}</label>
+    <input class="input-group__input" [name]="inputName" [type]="inputType" [formControlName]="controlName" [placeholder]="inputPlaceholder"
+    />
+    <i *ngIf="iconClass" class="input-group__icon" [ngClass]="[iconClass ? iconClass : '']"></i>
+</div>

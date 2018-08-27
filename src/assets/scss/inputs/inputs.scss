@@ -1,4 +1,19 @@
-input, select, textarea {
-    font-family: "Raleway";
-    font-size: 13px;
+input,
+select,
+textarea {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+input[type=submit] {
+  height: $card-height;
+  border-radius: 3px;
+  background: $header-color;
+  min-width: 100px;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
 }

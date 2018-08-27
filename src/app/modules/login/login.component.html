@@ -1,15 +1,14 @@
-<div>
-  <form [formGroup]="loginForm" (ngSubmit)="login()">
-    <div class="form-control">
-      <label for="email">Email</label>
-      <input name="email" type="email" formControlName="email" />
+<div class="login">
+  <div class="login__body">
+    <div class="login__title">
+      <h3>Wunderbar</h3>
     </div>
-    <div class="form-control">
-      <label for="password">Password</label>
-      <input name="password" type="password" formControlName="password" />
-    </div>
-    <div class="form-control">
-      <input type="submit" value="Login"/>
-    </div>
-  </form>
+    <form [formGroup]="loginForm" (ngSubmit)="login()" class="login__form">
+      <input-component [groupName]="loginForm" [inputType]="'email'" [inputName]="'email'" [controlName]="'email'" [inputPlaceholder]="'Email'" [iconClass]="'far fa-envelope-open'"></input-component>
+      <input-component [groupName]="loginForm" [inputType]="'password'" [inputName]="'password'" [controlName]="'password'" [inputPlaceholder]="'Password'" [iconClass]="'fas fa-fingerprint'"></input-component>
+      <div class="login__submit">
+        <input type="submit" value="Login" />
+      </div>
+    </form>
+  </div>
 </div>

@@ -1,6 +1,6 @@
 <li class="todo-item" [ngClass]="{'completed': todo.isCompleted}">
     <div class="todo-item-checkbox">
-        <i class="fa" [ngClass]="{'fa-square-o': !todo.isCompleted, 'fa-check-square-o': todo.isCompleted}" (click)="toggleComplete()"></i>
+        <i class="far" [ngClass]="{'fa-check-square': todo.isCompleted, 'fa-square': !todo.isCompleted}" (click)="toggleComplete()"></i>
     </div>
     <div class="todo-item-text" (click)="openSidebar()">
         <span class="text-button" title="{{todo.todoName}}" [ngStyle]="{'text-decoration': todo.isCompleted ? 'line-through': 'none'}">{{todo.todoName}}</span>

@@ -1,12 +1,16 @@
 @import 'fonts/font';
 
 @import 'constants/variables';
-@import '~font-awesome/scss/font-awesome';
+@import '~@fortawesome/fontawesome-free/css/all.css';
 
 @import 'layout/layout';
 @import 'partials/links';
+@import 'partials/headings';
+@import 'inputs/inputs';
 
 @import 'components/navbar.component';
+@import 'components/login.component';
+@import 'components/input.component';
 @import 'components/todos.component';
 @import 'components/addtodo.component';
 @import 'components/todoitem.component';

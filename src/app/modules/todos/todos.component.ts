@@ -22,7 +22,7 @@ export class TodosComponent implements OnInit {
     }
 
     private addAllRoute(routes: Route[]): Route[] {
-        routes.unshift({ id: 'all', name: 'All', iconClass: 'fa-newspaper-o' })
+        routes.unshift({ id: 'all', name: 'All', iconClass: 'far fa-newspaper' })
         return routes;
     }
 }

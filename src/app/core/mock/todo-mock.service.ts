@@ -6,7 +6,7 @@ export class TodoMockInMemorySerice implements InMemoryDbService {
         const todos = [{
             id: v1(),
             name: 'Recent',
-            iconClass: 'fa-pencil',
+            iconClass: 'fas fa-pencil-alt',
             todoList: [
                 { id: v1(), todoName: 'test1', description: 'Lorem ipsum', isCompleted: false },
                 { id: v1(), todoName: 'test2', description: 'Lorem ipsum', isCompleted: false },
@@ -16,7 +16,7 @@ export class TodoMockInMemorySerice implements InMemoryDbService {
         {
             id: v1(),
             name: 'Movies',
-            iconClass: 'fa-film',
+            iconClass: 'fas fa-film',
             todoList: [
                 { id: v1(), todoName: 'test4', description: 'Lorem ipsum10', isCompleted: false },
                 { id: v1(), todoName: 'test5', description: 'Lorem ipsum20', isCompleted: true },

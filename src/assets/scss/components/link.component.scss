@@ -37,6 +37,9 @@
       color: $header-color;
       &::before {
         visibility: visible;
+        left: 10px;
+        right: auto;
+        width: calc(100% - 20px);
       }
     }
   }

@@ -1,0 +1,31 @@
+.input-group {
+  width: 100%;
+  height: $card-height;
+  margin: 10px 0;
+  display: flex;
+  position: relative;
+  &__input {
+    height: 100%;
+    width: 100%;
+    border-radius: 3px;
+    padding: 0 10px 0 30px;
+    border: 1px solid $border-color;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    color: $border-color;
+    &:focus {
+      border: 1px solid $header-color;
+      color: rgb(0, 0, 0);
+      +.input-group__icon {
+        color: $header-color;
+      }
+    }
+  }
+  &__icon {
+    transition: all 0.2s ease-in-out;
+    position: absolute;
+    line-height: 32px;
+    padding: 0 10px;
+    color: $border-color;
+  }
+}

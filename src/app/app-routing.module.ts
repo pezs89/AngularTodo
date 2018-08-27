@@ -16,7 +16,7 @@ const appRoutes: Routes = [
     },
     {
         path: 'login',
-        loadChildren: 'app/modules/login/login.module#LoginModule'
+        loadChildren: 'app/modules/login/login.module#LoginModule',
     },
     {
         path: '**',
