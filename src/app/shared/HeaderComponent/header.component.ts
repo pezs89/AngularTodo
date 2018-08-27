@@ -17,7 +17,7 @@ export class Header implements OnInit, OnDestroy {
     constructor(private searchService: SearchService, private authService: AuthService) { }
 
     ngOnInit() {
-        this.authserviceSubscription = this.authService.isAuthenticated().subscribe((sessionId: string) => {
+        this.authserviceSubscription = this.authService.sessionIdObserver.subscribe((sessionId: string) => {
             this.isAuthenticated = !!sessionId;
             if (this.isAuthenticated) {
                 this.user = this.authService.getLoggedUser();

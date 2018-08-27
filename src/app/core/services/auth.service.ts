@@ -13,6 +13,7 @@ const httpOptions = {
 export class AuthService {
   private user: User;
   private sessionId: BehaviorSubject<string> = new BehaviorSubject<string>(localStorage.getItem('sessionId'));
+  sessionIdObserver: Observable<string> = this.sessionId.asObservable();
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -26,7 +27,7 @@ export class AuthService {
     this.user = null;
     localStorage.removeItem('sessionId');
     localStorage.removeItem('email');
-    this.sessionId.next(localStorage.getItem('sessionId'));
+    this.changeSessionId();
     this.navigateTo('login');
   }
 
@@ -36,7 +37,7 @@ export class AuthService {
       localStorage.setItem('sessionId', this.user.id.toString());
       localStorage.setItem('email', this.user.email);
       this.navigateTo('todos');
-      this.setLoggedIn();
+      this.changeSessionId();
     })
   }
 
@@ -44,8 +45,8 @@ export class AuthService {
     this.router.navigate([`/${route}`]);
   }
 
-  isAuthenticated(): Observable<string> {
-    return this.sessionId.asObservable();
+  isAuthenticated(): string {
+    return localStorage.getItem('sessionId');;
   }
 
   getLoggedUser(): User {
@@ -55,7 +56,7 @@ export class AuthService {
     return { ...this.user };
   }
 
-  setLoggedIn() {
+  changeSessionId() {
     this.sessionId.next(localStorage.getItem('sessionId'));
   }
 }

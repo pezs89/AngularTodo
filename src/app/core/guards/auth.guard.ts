@@ -8,14 +8,13 @@ import { map } from 'rxjs/operators/';
 export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) { }
 
-  canActivate(): Observable<boolean> {
-    return this.authService.isAuthenticated().pipe(map((sessionId: string) => {
-      if (!sessionId) {
-        this.router.navigate(['/login'])
-        return false;
-      }
+  canActivate(): boolean {
+    if (this.authService.isAuthenticated()) {
       this.authService.getUserInformations(localStorage.getItem('email'));
       return true;
-    }))
+    } else {
+      this.router.navigate(['/login'])
+      return false;
+    }
   }
 }
