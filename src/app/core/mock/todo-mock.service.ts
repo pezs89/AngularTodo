@@ -29,7 +29,7 @@ export class TodoMockInMemorySerice implements InMemoryDbService {
             id: 1,
             name: 'Zsolt Peter',
             email: 'zpeter@login.com',
-            profilePicture: '/img/dummy-profile-pic.jpg'
+            profilePicture: 'assets/dummy-profile-pic.jpg'
         }];
 
         const login = [{
