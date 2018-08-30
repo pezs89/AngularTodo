@@ -1,0 +1,6 @@
+<div class="icon-picker" clickOutside (clickedOutSide)="onClickedOutside($event)" (click)="togglePicker()">
+    <div class="icon-picker__placeholder" [ngClass]="[selectedIcon ? selectedIcon : icons[0]]"></div>
+    <div class="icon-picker__icon-container" *ngIf="isOpen">
+        <div *ngFor="let icon of icons" class="icon-picker__icon" [ngClass]="icon" (click)="selectIcon(icon)"></div>
+    </div>
+</div>

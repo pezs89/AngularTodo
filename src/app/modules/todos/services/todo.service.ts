@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { Todo } from '../../../core/models/todo.model';
 import { Route } from '../../../core/interfaces/route.interface';
 import { TodoListResponse } from '../../../core/interfaces/todo-list-response.interface';
+import { v1 } from 'uuid';
 
 @Injectable()
 export class TodoService {
@@ -23,6 +24,12 @@ export class TodoService {
         return this.http.get<TodoListResponse[]>(`api/todos`).pipe(map((response: TodoListResponse[]) => {
             return this.transformMultipleTodosList(response)
         }));
+    }
+
+    createNewRoute(newTodoRoute: TodoListResponse) {
+        return this.http.post('api/todos', newTodoRoute).pipe(resp => {
+            return resp;
+        });
     }
 
     getTodos(id: string) {

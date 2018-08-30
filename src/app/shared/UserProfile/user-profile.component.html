@@ -1,4 +1,4 @@
 <div class="user-profile">
   <h3 class="user-profile__name">{{userData.name}}</h3>
-  <div class="user-profile__picture" [ngStyle]="{'background': 'url(' + userData.profilePicture + ')'}" (click)="logout()"></div>
+  <div class="user-profile__picture" [ngStyle]="{'background-image': 'url(' + userData.profilePicture + ')'}" (click)="logout()"></div>
 </div>

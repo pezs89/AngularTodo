@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Route } from '@angular/router';
 
 @Component({
@@ -9,4 +9,11 @@ import { Route } from '@angular/router';
 export class NavBarComponent {
   @Input() baseUrl: string;
   @Input() navItems: Route[];
+  @Input() hasFixedElements: boolean;
+  @Output() createNewRouteCallback: EventEmitter<string> = new EventEmitter();
+
+  createNewRoute(newRouteName: string) {
+    console.log(newRouteName)
+    this.createNewRouteCallback.emit(newRouteName);
+  }
 }

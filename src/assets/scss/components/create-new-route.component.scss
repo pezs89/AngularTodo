@@ -1,0 +1,44 @@
+.create-new-route {
+  position: relative;
+  outline: none;
+  text-decoration: none;
+  background-color: rgba(14, 145, 197, 1);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  height: $card-height;
+  padding: 10px 15px;
+  z-index: 1;
+  &:hover {
+    color: #fff;
+    cursor: pointer;
+  }
+  &__edit {
+    display: flex;
+    width: 100%;
+    position: relative;
+  }
+  &__icon {
+    position: absolute;
+    right: 5px;
+    line-height: $card-height;
+    color: red;
+  }
+  &__input {
+    border: none;
+    outline: none;
+    background-color: rgba(14, 145, 197, 1);
+    width: calc(100% - 4px);
+    padding: 0 20px 0 5px;
+    color: #fff;
+    &:focus,
+    &::placeholder {
+      color: #FFF;
+    }
+    &:focus {
+      &::placeholder {
+        color: transparent;
+      }
+    }
+  }
+}

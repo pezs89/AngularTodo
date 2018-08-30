@@ -16,6 +16,8 @@ import { FilterCompletedTodos } from '../../core/pipes/filter-completed-todos.pi
 import { NavBarComponent } from '../../shared/NavBar/navbar.component';
 import { ClickOutsideDirective } from '../../shared/ClickOutside/clickOutside.directive';
 import { LinkComponent } from '../../shared/link/link.component';
+import { CreateNewRouteComponent } from '../../shared/createNewRouteComponent/create-new-route.component';
+import { IconPickerComponent } from '../../shared/iconPicker/icon-picker.component';
 
 import { TodosRoutingModule } from './todos-routing.module';
 
@@ -35,7 +37,9 @@ import { TodosRoutingModule } from './todos-routing.module';
         NameFilterPipe,
         FilterCompletedTodos,
         ClickOutsideDirective,
-        LinkComponent
+        LinkComponent,
+        CreateNewRouteComponent,
+        IconPickerComponent
     ],
     providers: [
         TodoService,

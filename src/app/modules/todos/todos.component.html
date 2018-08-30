@@ -1,6 +1,6 @@
 <div #todosModuleContainer class="todos-module">
     <div class="todos-module__nav">
-        <nav-bar [navItems]="routes" [baseUrl]="baseUrl"></nav-bar>
+        <nav-bar [navItems]="routes" [baseUrl]="baseUrl" (createNewRouteCallback)="createNewRoute($event)" [hasFixedElements]="'true'"></nav-bar>
     </div>
     <div class="todos-module__main">
         <add-todo></add-todo>

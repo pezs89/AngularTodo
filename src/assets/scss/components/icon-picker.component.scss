@@ -1,0 +1,36 @@
+.icon-picker {
+  height: $card-height;
+  width: $card-height;
+  left: 0;
+  &__placeholder {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0.95);
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      transform: scale(1);
+    }
+  }
+  &__icon-container {
+    position: absolute;
+    width: 200px;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #FFF;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    top: 100%;
+  }
+  &__icon {
+    height: $card-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(200px / 5);
+    color: $header-color;
+    padding: 5px;
+  }
+}

@@ -1,5 +1,10 @@
 <div class="navbar">
-    <ul class="navbar__list">
+    <ul *ngIf="hasFixedElements" class="navbar__list navbar__list--fixed">
+        <li class="navbar__item">
+            <create-new-route (newElementCreated)="createNewRoute($event)"></create-new-route>
+        </li>
+    </ul>
+    <ul class="navbar__list" [ngClass]="{'navbar__list--with-padding': hasFixedElements}">
         <li class="navbar__item" *ngFor="let navItem of navItems">
             <link-component [navItem]="navItem" [baseUrl]="baseUrl"></link-component>
         </li>

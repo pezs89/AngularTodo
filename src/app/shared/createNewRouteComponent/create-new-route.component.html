@@ -1,0 +1,11 @@
+<a class="create-new-route">
+    <span class="create-new-route__readonly" *ngIf="!isInEditMode" (click)="toggleEditMode()">
+        <i class="fas fa-plus"></i>
+        Create new
+    </span>
+    <span class="create-new-route__edit" *ngIf="isInEditMode">
+        <icon-picker (iconSelectionChanged)="handleIconChange($event)"></icon-picker>
+        <input class="create-new-route__input" placeholder="Create new route..." type="text" #createInput (keydown.enter)="createNewElement($event.target.value)"/>
+        <i class="fas fa-times create-new-route__icon" (click)="toggleEditMode()"></i>
+    </span>
+</a>
