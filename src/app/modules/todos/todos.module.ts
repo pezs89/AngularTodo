@@ -18,6 +18,7 @@ import { ClickOutsideDirective } from '../../shared/ClickOutside/clickOutside.di
 import { LinkComponent } from '../../shared/link/link.component';
 import { CreateNewRouteComponent } from '../../shared/createNewRouteComponent/create-new-route.component';
 import { IconPickerComponent } from '../../shared/iconPicker/icon-picker.component';
+import { ToggleSidebarComponent } from '../../shared/toggleSidebar/toggle-sidebar.component';
 
 import { TodosRoutingModule } from './todos-routing.module';
 
@@ -39,7 +40,8 @@ import { TodosRoutingModule } from './todos-routing.module';
         ClickOutsideDirective,
         LinkComponent,
         CreateNewRouteComponent,
-        IconPickerComponent
+        IconPickerComponent,
+        ToggleSidebarComponent
     ],
     providers: [
         TodoService,

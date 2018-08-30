@@ -9,9 +9,11 @@
     &--fixed {
       position: absolute;
       width: 100%;
+      z-index: 1;
+      background-color: rgba(14, 145, 197, 1);
     }
     &--with-padding {
-      height: 100%;
+      height: calc(100% - 50px);
       overflow: auto;
       padding-top: 50px;
     }
