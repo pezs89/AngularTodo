@@ -1,4 +1,4 @@
 <a class="link link__nav" [routerLink]="[baseUrl, navItem.id]" [routerLinkActive]="'link__nav--active'">
   <i *ngIf="hasIcon" [class]="'link__icon ' + navItem.iconClass"></i>
-  {{navItem.name}}
+  {{ isLabelVisible ? '' : navItem.name }}
 </a>

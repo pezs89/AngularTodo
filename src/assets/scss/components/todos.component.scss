@@ -4,10 +4,16 @@
   &__nav {
     width: 20%;
     background: #FFF;
+    &--collapsed {
+      width: 5%;
+    }
   }
   &__main {
     width: calc(80% - 20px);
     padding: 10px;
     overflow: auto;
+    &--full-width {
+      width: calc(95% - 20px);
+    }
   }
 }

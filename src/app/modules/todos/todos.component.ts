@@ -13,6 +13,7 @@ import { NewRoute } from '../../core/interfaces/new-route.interface';
 export class TodosComponent implements OnInit {
     routes: Route[];
     baseUrl: string = '/todos';
+    isSidebarOpened: boolean = true;
     @ViewChild('todosModuleContainer', { read: ViewContainerRef }) container: ViewContainerRef;
 
     constructor(private sidebarService: SidebarService, private todoService: TodoService) { }
@@ -46,5 +47,9 @@ export class TodosComponent implements OnInit {
                 this.getAllRoutes();
             }
         })
+    }
+
+    toggleSidebar(isToggled: boolean) {
+        this.isSidebarOpened = isToggled;
     }
 }

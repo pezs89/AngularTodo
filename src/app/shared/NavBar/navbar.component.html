@@ -1,13 +1,13 @@
 <div class="navbar">
     <ul *ngIf="hasFixedElements" class="navbar__list navbar__list--fixed">
-        <li class="navbar__item">
-            <create-new-route (newElementCreated)="createNewRoute($event)"></create-new-route>
-            <toggle-sidebar></toggle-sidebar>
+        <li class="navbar__item navbar__item--flex">
+            <create-new-route (newElementCreated)="createNewRoute($event)" *ngIf="isSidebarOpen"></create-new-route>
+            <toggle-sidebar (isToggled)="toggleSidebar($event)"></toggle-sidebar>
         </li>
     </ul>
     <ul class="navbar__list" [ngClass]="{'navbar__list--with-padding': hasFixedElements}">
         <li class="navbar__item" *ngFor="let navItem of navItems">
-            <link-component [navItem]="navItem" [baseUrl]="baseUrl"></link-component>
+            <link-component [navItem]="navItem" [baseUrl]="baseUrl" [isLabelVisible]="!isSidebarOpen"></link-component>
         </li>
     </ul>
 </div>

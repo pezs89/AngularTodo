@@ -1,8 +1,8 @@
 <div #todosModuleContainer class="todos-module">
-    <div class="todos-module__nav">
-        <nav-bar [navItems]="routes" [baseUrl]="baseUrl" (createNewRouteCallback)="createNewRoute($event)" [hasFixedElements]="'true'"></nav-bar>
+    <div class="todos-module__nav" [ngClass]="{'todos-module__nav--collapsed': !isSidebarOpened}">
+        <nav-bar [navItems]="routes" [baseUrl]="baseUrl" (createNewRouteCallback)="createNewRoute($event)" [hasFixedElements]="'true'" (isCollapsed)="!toggleSidebar($event)"></nav-bar>
     </div>
-    <div class="todos-module__main">
+    <div class="todos-module__main" [ngClass]="{'todos-module__main--full-width': isSidebarOpened}">
         <add-todo></add-todo>
         <router-outlet></router-outlet>
     </div>

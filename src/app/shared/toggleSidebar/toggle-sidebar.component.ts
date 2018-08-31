@@ -6,10 +6,11 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 
 export class ToggleSidebarComponent {
-    isOpened: boolean = false;
+    isOpened: boolean = true;
     @Output() isToggled: EventEmitter<boolean> = new EventEmitter();
 
     toggleMenu() {
         this.isOpened = !this.isOpened;
+        this.isToggled.emit(this.isOpened);
     }
 }

@@ -8,6 +8,7 @@ import { Route } from '../../core/interfaces/route.interface';
 
 export class LinkComponent {
   @Input() navItem: Route;
+  @Input() isLabelVisible: boolean;
   @Input() baseUrl: string;
   get hasIcon() {
     return !!this.navItem.iconClass;
